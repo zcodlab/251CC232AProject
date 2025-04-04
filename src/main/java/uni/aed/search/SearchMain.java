@@ -42,7 +42,7 @@ public class SearchMain {
                     case 6->{callBubbleWuSort();}                    
                     case 7->{callSelectionWuSort();}                    
                     case 8->{callInsercionSort();}                    
-                    case 9->{c();}                    
+                    case 9->{callInsercionBinariaSort();}                    
                     case 10->{System.out.println("Saliendo..."); return;}//salir del programa
                     default->System.out.println("Opcion Invalida....");
                 }                
