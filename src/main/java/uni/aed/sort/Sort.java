@@ -38,6 +38,25 @@ public class Sort {
             X[startIndex]=X[minIndex];
             X[minIndex]=temp;            
         }
+    }    
+    public void insercionSort(){
+        int aux,k;
+        boolean sw=false;
+        for(int i=1;i<X.length;i++){
+            aux=X[i];
+            k=i-1;
+            sw=false;
+            while(!sw && k>=0){
+                if(aux<X[k])
+                {
+                   X[k+1]=X[k];
+                   k--;
+                }
+                else
+                    sw=true;
+            }
+            X[k+1]=aux;
+        }//end for        
     }
     
     @Override
