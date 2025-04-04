@@ -31,7 +31,8 @@ public class SearchMain {
                     "7.-Ordenamiento Seleccion "+SEPARADOR+
                     "8.-Ordenamiento Insercion "+SEPARADOR+
                     "9.-Ordenamiento Insercion Binaria"+SEPARADOR+                        
-                    "10.-Salir "+SEPARADOR+ "Elija una opcion:");
+                    "10.-Ordenamiento HeapSort"+SEPARADOR+                        
+                    "11.-Salir "+SEPARADOR+ "Elija una opcion:");
                 opcion=scr.nextInt();
                 switch(opcion){
                     case 1->{carga();visualizar();}
@@ -43,10 +44,11 @@ public class SearchMain {
                     case 7->{callSelectionWuSort();}                    
                     case 8->{callInsercionSort();}                    
                     case 9->{callInsercionBinariaSort();}                    
-                    case 10->{System.out.println("Saliendo..."); return;}//salir del programa
+                    case 10->{callHeapSort();}                    
+                    case 11->{System.out.println("Saliendo..."); return;}//salir del programa
                     default->System.out.println("Opcion Invalida....");
                 }                
-            }while(opcion!=10);            
+            }while(opcion!=11);            
         }catch(InputMismatchException e){
             System.out.println("Debe ingresar un numero "+ e.toString());
         }catch(Exception e){
@@ -125,6 +127,14 @@ public class SearchMain {
         sort.setX(Y);//pasando el array origen
         System.out.println("Array inicial: " + sort.toString());
         sort.insercionBinariaSort();
+        System.out.println("Array final: " + sort.toString());
+        
+    }
+    private void callHeapSort(){
+        Integer[] Y=X.clone();
+        sort.setX(Y);//pasando el array origen
+        System.out.println("Array inicial: " + sort.toString());
+        sort.heapSort();
         System.out.println("Array final: " + sort.toString());
         
     }
