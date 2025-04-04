@@ -58,6 +58,24 @@ public class Sort {
             X[k+1]=aux;
         }//end for        
     }
+    public void insercionBinariaSort(){
+        int aux,p,u,c;
+        for(int i=1;i<X.length;i++){
+            aux=X[i];
+            p=0;
+            u=i-1;
+            while(p<=u){
+                c=(p+u)/2;
+                if(aux<X[c])
+                    u=c-1;
+                else
+                    p=c+1;
+            }
+            for(int k=i-1;k>=p;k--)
+                X[k+1]=X[k];
+            X[p]=aux;
+        }//end for externo
+    }     
     
     @Override
     public String toString() {

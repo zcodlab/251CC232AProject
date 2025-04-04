@@ -30,7 +30,8 @@ public class SearchMain {
                     "6.-Ordenamiento Burbuja "+SEPARADOR+
                     "7.-Ordenamiento Seleccion "+SEPARADOR+
                     "8.-Ordenamiento Insercion "+SEPARADOR+
-                    "9.-Salir "+SEPARADOR+ "Elija una opcion:");
+                    "9.-Ordenamiento Insercion Binaria"+SEPARADOR+                        
+                    "10.-Salir "+SEPARADOR+ "Elija una opcion:");
                 opcion=scr.nextInt();
                 switch(opcion){
                     case 1->{carga();visualizar();}
@@ -41,10 +42,11 @@ public class SearchMain {
                     case 6->{callBubbleWuSort();}                    
                     case 7->{callSelectionWuSort();}                    
                     case 8->{callInsercionSort();}                    
-                    case 9->{System.out.println("Saliendo..."); return;}//salir del programa
+                    case 9->{c();}                    
+                    case 10->{System.out.println("Saliendo..."); return;}//salir del programa
                     default->System.out.println("Opcion Invalida....");
                 }                
-            }while(opcion!=9);            
+            }while(opcion!=10);            
         }catch(InputMismatchException e){
             System.out.println("Debe ingresar un numero "+ e.toString());
         }catch(Exception e){
@@ -118,5 +120,14 @@ public class SearchMain {
         System.out.println("Array final: " + sort.toString());
         
     }
+    private void callInsercionBinariaSort(){
+        Integer[] Y=X.clone();
+        sort.setX(Y);//pasando el array origen
+        System.out.println("Array inicial: " + sort.toString());
+        sort.insercionBinariaSort();
+        System.out.println("Array final: " + sort.toString());
+        
+    }
+    
     
 }
