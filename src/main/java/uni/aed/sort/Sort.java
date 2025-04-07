@@ -5,6 +5,11 @@ public class Sort {
     public void setX(Integer[] X) {
         this.X = X;
     }
+
+    public Integer[] getX() {
+        return X;
+    }
+    
     //metodo de ordenamiento de la burbuja
     public void bubbleWuSort(){
         int temp,bottom;
@@ -94,8 +99,9 @@ public class Sort {
                     hecho=true;
                 else{
                     maxChildIndex=heapSortMaxChild(current,X.length-1);
-                    if(X[current]<X[maxChildIndex])
+                    if(X[current]<X[maxChildIndex]){
                         intercambio(current,maxChildIndex);
+                        current=maxChildIndex; }//aqui estaba la incidencia, faltaba esta linea de codigo
                     else
                         hecho=true;
                 }

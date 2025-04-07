@@ -90,11 +90,14 @@ public class SearchMain {
         int valor=scr.nextInt();
         //callBubbleWuSort();
         callSelectionWuSort();
+        search.setX(sort.getX());
         int pos=search.searchBinaria(valor);
         if(pos==-1)
             System.out.println("El valor buscado "+valor+" no existe");
         else
             System.out.println("El valor buscado "+valor+" se ubico en la posicion "+ pos);                    
+        System.out.println("La busqueda binaria realizo "+search.getnComp()+" comparaciones");
+        System.out.println(search.getAnalisis());
         
     }
     
