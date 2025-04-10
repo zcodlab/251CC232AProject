@@ -116,15 +116,8 @@ public class DirectorioV1 implements Directorio{
         //copiamos las referencias a la lista ordenada
         entry[0].setCompareAttribute(attribute);
         for (int i = 0; i < count; i++)
-            sortedList[i] = entry[i];                //Object[] X=getY().clone();
+            sortedList[i] = entry[i];                
         switch(algoritmo.toUpperCase()){            
-//            case "HEAPSORT"->{
-//                Object[] X=(Object[])sortedList.clone();
-//                SortObject sortObject=new SortObject();                 
-//                sortObject.setX(X);
-//                sortObject.HeapSort();
-//                result=X;
-//            }            
             case "MERGESORT"->{
                 Object[] X=(Object[])sortedList.clone();
                 SortObject sortObject=new SortObject();                 
