@@ -118,8 +118,16 @@ public class DirectorioMain {
         }
         
         System.out.println(" ");
-        System.out.println("Visualizando el Directorio");
+        System.out.println("Visualizando el Directorio");        
         System.out.println( ab.toString());
+        
+        System.out.println("Eliminando el elemento fox");
+        boolean status=ab.delete("fox");
+        System.out.println( ab.toString());   
+        
+        String valor="cow";        
+        System.out.println( "El valor buscado "+valor+ " se encontro en la posicion: "+ab.search(valor, "LINEAL"));
+        
     }    
     
 

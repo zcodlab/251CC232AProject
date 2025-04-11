@@ -2,6 +2,7 @@
 package uni.aed.directorio;
 
 import uni.aed.model.Persona;
+import uni.aed.search.SearchObject;
 import uni.aed.sort.SortObject;
 
 public class DirectorioV1 implements Directorio{
@@ -48,11 +49,12 @@ public class DirectorioV1 implements Directorio{
     {
         boolean    status;
         int        loc;
-        loc = findIndex( searchName );
+        loc = findIndex1( searchName );
         if (loc == NOT_FOUND)
             status = false;        
         else {
             entry[loc] = entry[count-1];//coloca el valor de la ultima posicion en la posicion del valor eliminado
+            entry[count-1]=null;
             status = true;
             count--;        
         }
@@ -147,29 +149,32 @@ public class DirectorioV1 implements Directorio{
             loc = NOT_FOUND;        
         return loc;
     }   
-
-//    @Override
-//    public int search(Object searchValue,String algoritmo) {
-//        Object[ ] searchList = new Persona[ count ];    
-//        int result=NOT_FOUND;
-//        //copiamos las referencias a la lista ordenada        
-//        for (int i = 0; i < count; i++) {
-//            searchList[i] = entry[i];
-//        }
-//        SearchObject searchObject=new SearchObject();    
-//        switch(algoritmo.toUpperCase()){
-//            case "LINEAL"->{
-//                result= searchObject.Lineal(searchList, searchValue);
-//            }
-//            case "BINARIA"->{
-//                result= searchObject.Binaria(searchList, searchValue);
-//            }
-//        }
-//        return result;
-//    }
+    private int findIndex1( String searchName ){
+        SearchObject searchObject=new SearchObject();
+        searchObject.setX(entry);
+        return searchObject.searchLineal(searchName);
+    }
 
     @Override
-    public int search(Object searchValue, String algoritmo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public int search(Object searchValue,String algoritmo) {
+        Object[ ] searchList = new Persona[ count ];    
+        int result=NOT_FOUND;
+        //copiamos las referencias a la lista ordenada        
+        for (int i = 0; i < count; i++) {
+            searchList[i] = entry[i];
+        }
+        SearchObject searchObject=new SearchObject();    
+        searchObject.setX(searchList);
+        switch(algoritmo.toUpperCase()){
+            case "LINEAL"->{
+                result= searchObject.searchLineal(searchValue);
+            }
+            case "BINARIA"->{
+                result= searchObject.searchBinaria(searchValue);
+            }
+        }
+        return result;
     }
+
+    
 }

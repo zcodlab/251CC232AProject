@@ -91,6 +91,8 @@ public class Persona implements Comparable{
 
     @Override
     public int compareTo(Object o) {
+        if(o instanceof String)
+            return this.name.compareTo((String)o);
         return compareTo((Persona)o, compareAttribute);
     }
 }
