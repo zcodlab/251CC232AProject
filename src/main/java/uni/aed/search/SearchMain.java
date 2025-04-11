@@ -1,6 +1,7 @@
 package uni.aed.search;
 
 import java.util.InputMismatchException;
+import java.util.Random;
 import java.util.Scanner;
 import uni.aed.sort.Sort;
 import uni.aed.sort.Complejidad;
@@ -25,31 +26,33 @@ public class SearchMain {
                 System.out.println("Algoritmos de Busqueda y Ordenamiento " +SEPARADOR+
                     "1.-Carga Fija de Datos en Array "+SEPARADOR+
                     "2.-Carga Personalizada de Datos en Array "+SEPARADOR+
-                    "3.-Visualizar Array "+SEPARADOR+
-                    "4.-Busqueda Lineal "+SEPARADOR+
-                    "5.-Busqueda Binaria "+SEPARADOR+
-                    "6.-Ordenamiento Burbuja "+SEPARADOR+
-                    "7.-Ordenamiento Seleccion "+SEPARADOR+
-                    "8.-Ordenamiento Insercion "+SEPARADOR+
-                    "9.-Ordenamiento Insercion Binaria"+SEPARADOR+                        
-                    "10.-Ordenamiento HeapSort"+SEPARADOR+                        
-                    "11.-Salir "+SEPARADOR+ "Elija una opcion:");
+                    "3.-Carga Aletoria de Datos en Array "+SEPARADOR+
+                    "4.-Visualizar Array "+SEPARADOR+
+                    "5.-Busqueda Lineal "+SEPARADOR+
+                    "6.-Busqueda Binaria "+SEPARADOR+
+                    "7.-Ordenamiento Burbuja "+SEPARADOR+
+                    "8.-Ordenamiento Seleccion "+SEPARADOR+
+                    "9.-Ordenamiento Insercion "+SEPARADOR+
+                    "10.-Ordenamiento Insercion Binaria"+SEPARADOR+                        
+                    "11.-Ordenamiento HeapSort"+SEPARADOR+                        
+                    "12.-Salir "+SEPARADOR+ "Elija una opcion:");
                 opcion=scr.nextInt();
                 switch(opcion){
                     case 1->{carga();visualizar();}
                     case 2->{cargaPersonalizada();visualizar();}
-                    case 3->{visualizar();}                    
-                    case 4->{callSearchLineal();}                    
-                    case 5->{callSearchBinaria();}                    
-                    case 6->{callBubbleWuSort();}                    
-                    case 7->{callSelectionWuSort();}                    
-                    case 8->{callInsercionSort();}                    
-                    case 9->{callInsercionBinariaSort();}                    
-                    case 10->{callHeapSort();}                    
-                    case 11->{System.out.println("Saliendo..."); return;}//salir del programa
+                    case 3->{cargaAleatoria();visualizar();}
+                    case 4->{visualizar();}                    
+                    case 5->{callSearchLineal();}                    
+                    case 6->{callSearchBinaria();}                    
+                    case 7->{callBubbleWuSort();}                    
+                    case 8->{callSelectionWuSort();}                    
+                    case 9->{callInsercionSort();}                    
+                    case 10->{callInsercionBinariaSort();}                    
+                    case 11->{callHeapSort();}                    
+                    case 12->{System.out.println("Saliendo..."); return;}//salir del programa
                     default->System.out.println("Opcion Invalida....");
                 }                
-            }while(opcion!=11);            
+            }while(opcion!=12);            
         }catch(InputMismatchException e){
             System.out.println("Debe ingresar un numero "+ e.toString());
         }catch(Exception e){
@@ -70,6 +73,18 @@ public class SearchMain {
             System.out.println("Ingrese el valor X["+i+"]=");
             X[i]=scr.nextInt();
         }
+        search.setX(X);
+    }
+    
+    private void cargaAleatoria(){
+        System.out.println("Carga aleatoria");
+        int N=5000;
+        int min=0;
+        int max=8000;
+        X=new Integer[N];
+        Random random=new Random();
+        for(int i=0;i<X.length;i++)
+           X[i]=random.nextInt((max-min)+1) + min;                
         search.setX(X);
     }
     
@@ -108,8 +123,9 @@ public class SearchMain {
         System.out.println("Array inicial: " + sort.toString());
         sort.bubbleWuSort();
         System.out.println("Array final: " + sort.toString());
-        System.out.println("BURBUJA_NINTERCAMBIOS: " + Complejidad.BURBUJA_NINTERCAMBIOS);
-        System.out.println("BURBUJA_NCOMPARACIONES: " + Complejidad.BURBUJA_NCOMPARACIONES);
+        System.out.println("BURBUJA_NINTERCAMBIOS: " +sort.getnInt()+"|"+ Complejidad.BURBUJA_NINTERCAMBIOS);
+        System.out.println("BURBUJA_NCOMPARACIONES: " +sort.getnComp()+"|"+ Complejidad.BURBUJA_NCOMPARACIONES);
+        System.out.println("TIEMPO DE EJECUCION: " +sort.gettEjec());
         System.out.println("COMPLEJIDAD: " + Complejidad.BURBUJA_COMPLEJIDAD_WORSTCASE);
     }
     

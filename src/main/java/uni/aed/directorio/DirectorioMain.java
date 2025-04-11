@@ -1,15 +1,42 @@
 package uni.aed.directorio;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 import uni.aed.model.Persona;
 import uni.aed.sort.SortObject;
 
 public class DirectorioMain {
+    private static final Scanner scr=new Scanner(System.in).useDelimiter("\n");
     public static void main(String[] args) {
         DirectorioMain directorioMain = new DirectorioMain();
-        directorioMain.mergeSortPersona();
-        directorioMain.mergeSortEnteros();
+        directorioMain.menu();        
     }    
+    private void menu(){
+        String SEPARADOR="\n";
+        int opcion=3;
+        try{
+            do{
+                System.out.println("Test Directorio " +SEPARADOR+
+                    "1.-Test Directorio V1,V2,V3 "+SEPARADOR+                    
+                    "2.-Ordenamiento Personas - MergeSort "+SEPARADOR+
+                    "3.-Ordenamiento Enteros - MergeSort "+SEPARADOR+                    
+                    "4.-Salir "+SEPARADOR+ "Elija una opcion:");
+                opcion=scr.nextInt();
+                switch(opcion){
+                    case 1->{start();}
+                    case 2->{mergeSortPersona();}
+                    case 3->{mergeSortEnteros();}                    
+                    case 4->{System.out.println("Saliendo..."); return;}//salir del programa
+                    default->System.out.println("Opcion Invalida....");
+                }                
+            }while(opcion!=4);            
+        }catch(InputMismatchException e){
+            System.out.println("Debe ingresar un numero "+ e.toString());
+        }catch(Exception e){
+            System.out.println("Se presento un error "+ e.toString());
+        }
+    }
     private void mergeSortPersona(){
         Directorio directorio=new DirectorioV1(4);
         Persona p1=new Persona("Sonya Smith",random(18, 70),random(0,1)==0?'M':'F');
@@ -35,16 +62,16 @@ public class DirectorioMain {
         for(Object p: sortedlist)
             System.out.println( ((Persona)p).toString( ) );
     }
-    //1PC:demostracion 1b)
+    
     private void mergeSortEnteros(){
         Integer X[]={5,14,24,39,43,65,84,45};        
-        System.out.println("Heapsort:Lista origen de Enteros ");        
+        System.out.println("Mergesort:Lista origen de Enteros ");        
         for(Object p: X)
             System.out.println( ((Integer)p).toString( ) );
         SortObject sortObject=new SortObject();                 
         sortObject.setX((Object[])X);
         sortObject.callMergeSort();
-        System.out.println("Heapsort Ordenando Enteros: "+sortObject.toString());        
+        System.out.println("Mergesort Ordenando Enteros: "+sortObject.toString());        
     }
 
 

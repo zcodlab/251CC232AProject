@@ -105,8 +105,7 @@ public class DirectorioV1 implements Directorio{
             bottom--;
         }
         return sortedList;
-    }
-    //implementacion del metodo sort que atiende el enunciado 1 de la 1PC
+    }    
     public Object[] sort ( int attribute,String algoritmo ) {
         if (!(attribute == Persona.NAME || attribute == Persona.AGE) ) {
             throw new IllegalArgumentException( );
