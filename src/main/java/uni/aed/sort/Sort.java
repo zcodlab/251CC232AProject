@@ -1,6 +1,9 @@
 package uni.aed.sort;
 public class Sort {
     private Integer[] X;
+    private int nInt=0;//#ntercambios
+    private int nComp=0;//#Comparaciones
+    private long tEjec=0;//Tiempo de Ejecucion
 
     public void setX(Integer[] X) {
         this.X = X;
@@ -9,24 +12,64 @@ public class Sort {
     public Integer[] getX() {
         return X;
     }
+
+    public void setnInt(int nInt) {
+        this.nInt = nInt;
+    }
+
+    public void setnComp(int nComp) {
+        this.nComp = nComp;
+    }
+
+    public void settEjec(long tEjec) {
+        this.tEjec = tEjec;
+    }
+
+    public int getnInt() {
+        return nInt;
+    }
+
+    public int getnComp() {
+        return nComp;
+    }
+
+    public long gettEjec() {
+        return tEjec;
+    }
+    
     
     //metodo de ordenamiento de la burbuja
     public void bubbleWuSort(){
         int temp,bottom;
         boolean exchange=true;
         bottom=X.length-2;
+        int nInt=0,nComp=0;
+        long tIni=System.nanoTime();
         while(exchange){
             exchange=false;
             for(int i=0;i<=bottom;i++){
+                nComp++;
                 if(X[i]>X[i+1]){
                     temp=X[i];
                     X[i]=X[i+1];
                     X[i+1]=temp;
                     exchange=true;
+                    nInt++;
                 }                    
             }
             bottom--;            
         }
+        long tFin=System.nanoTime();
+        clear();
+        this.setnInt(nInt);
+        this.setnComp(nComp);
+        this.settEjec(tFin-tIni);
+    }
+    
+    private void clear(){
+        this.setnInt(0);
+        this.setnComp(0);
+        this.settEjec(0);
     }
     //metodo de ordenamiento por seleccion
     public void selectionWuSort(){
@@ -159,7 +202,7 @@ public class Sort {
             else
                 str.append("," + x.toString());
         
-        return str.toString();        
+        return "{"+str.toString()+"} nInt= "+ nInt +", nComp= "+nComp +", tEjec= "+tEjec+ "(ns)";        
     }
     
 }

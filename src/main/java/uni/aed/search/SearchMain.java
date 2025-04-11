@@ -3,6 +3,7 @@ package uni.aed.search;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import uni.aed.sort.Sort;
+import uni.aed.sort.Complejidad;
 
 public class SearchMain {
     private static final Scanner scr=new Scanner(System.in).useDelimiter("\n");
@@ -107,6 +108,9 @@ public class SearchMain {
         System.out.println("Array inicial: " + sort.toString());
         sort.bubbleWuSort();
         System.out.println("Array final: " + sort.toString());
+        System.out.println("BURBUJA_NINTERCAMBIOS: " + Complejidad.BURBUJA_NINTERCAMBIOS);
+        System.out.println("BURBUJA_NCOMPARACIONES: " + Complejidad.BURBUJA_NCOMPARACIONES);
+        System.out.println("COMPLEJIDAD: " + Complejidad.BURBUJA_COMPLEJIDAD_WORSTCASE);
     }
     
     private void callSelectionWuSort(){        

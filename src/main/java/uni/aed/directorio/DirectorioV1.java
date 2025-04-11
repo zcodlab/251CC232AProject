@@ -1,7 +1,7 @@
+
 package uni.aed.directorio;
 
 import uni.aed.model.Persona;
-//import uni.aed.search.SearchObject;
 import uni.aed.sort.SortObject;
 
 public class DirectorioV1 implements Directorio{
@@ -118,15 +118,13 @@ public class DirectorioV1 implements Directorio{
         for (int i = 0; i < count; i++)
             sortedList[i] = entry[i];                
         switch(algoritmo.toUpperCase()){            
-            case "MERGESORT"->{
-                Object[] X=(Object[])sortedList.clone();
+            case "MERGESORT"->{                
                 SortObject sortObject=new SortObject();                 
-                sortObject.setX(X);
-                sortObject.callMergeSort();  
-                result=X;
+                sortObject.setX(sortedList);
+                sortObject.callMergeSort();                  
             }            
         }//end switch
-        return result;
+        return sortedList;
     }
     
     private void enlarge( )
