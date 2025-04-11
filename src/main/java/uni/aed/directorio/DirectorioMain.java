@@ -87,7 +87,7 @@ public class DirectorioMain {
 
         switch (version) {
             case 1:  ab = new DirectorioV1(); break;
-            case 2:  ab = new DirectorioV1(); break;            
+            case 2:  ab = new DirectorioV2(); break;            
             default: ab = new DirectorioV1(); break;
         }
 
