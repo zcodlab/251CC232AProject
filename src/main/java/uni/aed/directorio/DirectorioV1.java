@@ -118,14 +118,21 @@ public class DirectorioV1 implements Directorio{
         entry[0].setCompareAttribute(attribute);
         for (int i = 0; i < count; i++)
             sortedList[i] = entry[i];                
-        switch(algoritmo.toUpperCase()){            
+        switch(algoritmo.toUpperCase()){               
             case "MERGESORT"->{                
                 SortObject sortObject=new SortObject();                 
                 sortObject.setX(sortedList);
-                sortObject.callMergeSort();                  
+                sortObject.callMergeSort(); 
+                result=sortedList;
             }            
+            case "HEAPSORT"->{                
+                SortObject sortObject=new SortObject();                 
+                sortObject.setX(sortedList);
+                sortObject.HeapSort();  
+                result=sortObject.getX();
+            }    
         }//end switch
-        return sortedList;
+        return result;
     }
     
     private void enlarge( )

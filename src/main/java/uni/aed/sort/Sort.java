@@ -192,6 +192,36 @@ public class Sort {
         X=Y;//Y es el array ordenado luego del proceso
     }
     
+    // ✅ NUEVO MÉTODO: QuickSort | solucion enunciado 1-pc1
+    public Integer[] QuickSort(Integer[] X, int start, int end) {
+        if (start < end) {
+            int pIndex = QuickSortPartition(X, start, end);
+            QuickSort(X, start, pIndex - 1);
+            QuickSort(X, pIndex + 1, end);
+        }
+        return X;
+    }
+
+    private int QuickSortPartition(Integer[] X, int start, int end) {
+        int pivot = X[end];
+        int pIndex = start;
+        for (int i = start; i < end; i++) {
+            if (X[i] <= pivot) {
+                intercambio(X, i, pIndex);
+                pIndex++;
+            }
+        }
+        intercambio(X, pIndex, end);
+        return pIndex;
+    }
+
+    // ✅ Sobrecarga del método intercambio para QuickSort
+    private void intercambio(Integer[] X, int p, int q) {
+        int temp = X[p];
+        X[p] = X[q];
+        X[q] = temp;
+    }
+    
     @Override
     public String toString() {
         if (X==null) return "";

@@ -1,3 +1,5 @@
+/*Solucion enunciado 2-pc1 de la linea 19 a la linea 69
+*/
 package uni.aed.directorio;
 
 import java.util.InputMismatchException;
@@ -8,10 +10,64 @@ import uni.aed.sort.SortObject;
 
 public class DirectorioMain {
     private static final Scanner scr=new Scanner(System.in).useDelimiter("\n");
+    Directorio directorio = new DirectorioV1();
+    Object[] sortedlist=null;
     public static void main(String[] args) {
         DirectorioMain directorioMain = new DirectorioMain();
-        directorioMain.menu();        
+        directorioMain.pc1Menu();                
     }    
+    private void pc1Menu(){
+        
+        int opcion = 0;
+        try{
+            do{
+                System.out.println("Ingrese opción\n1.Registrar Persona\n2.Ordenar por heapsort\n3.Visualizar Directorio\n4.Salir");
+                opcion = scr.nextInt();
+                switch (opcion){
+                    case 1:registrarPersona();break;                      
+                    case 2:ordenarPersonas();break;
+                    case 3:visualizarDirectorio();break;
+                    case 4:System.out.println("Saliendo...\n");break;
+                    default:System.out.println("Opcion inválida");break;
+                }
+            }while(opcion!=4);
+        }catch (Exception e){
+            System.out.println("Error");
+        }
+    }
+    private void registrarPersona(){
+        Persona p = new Persona();
+        System.out.println("Ingrese nombre");
+        p.setName(scr.next());
+        System.out.println("Ingrese edad");
+        p.setAge(scr.nextInt());
+        System.out.println("Ingrese género");
+        p.setGender(scr.next().charAt(0));
+        directorio.add(p);
+    }
+    private void ordenarPersonas(){
+        System.out.println("Ingrese el atributo por el que ordenar : (1.Edad/2.Nombre)");
+        switch (scr.nextInt()){
+            case 1:
+                sortedlist=directorio.sort(Persona.AGE,"HEAPSORT");                
+                break;
+            case 2:
+                sortedlist=directorio.sort(Persona.NAME,"HEAPSORT");                
+                break;
+            default:
+                break;
+        }
+        visualizarDirectorio();
+    }
+    private void visualizarDirectorio(){
+        if (sortedlist==null){
+            System.out.println( directorio.toString());
+            return;
+        }
+        for(Object p: sortedlist)
+            System.out.println( ((Persona)p).toString());        
+    }
+    
     private void menu(){
         String SEPARADOR="\n";
         int opcion=3;
