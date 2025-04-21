@@ -79,6 +79,26 @@ public class OSimpleLinkedList {
     public int size(){
         return lenght;
     }
+    //Resuelve Cap16-Ej7
+    public String searchDuplicados(Object data){
+        StringBuilder str=new StringBuilder();
+        ONodo current=head;        
+        int index=0;
+        while(current!=null){
+            if(((Comparable)current.getData()).compareTo(data)==0){
+                if(!str.isEmpty())
+                    str.append(",");
+                str.append(index);
+            }                            
+            current=current.getNext();
+            index++;            
+        }
+        if(str.isEmpty())
+            str.append(NOT_FOUND);        
+        
+        return str.toString();   
+    }
+    
     
     @Override
     public String toString() {
