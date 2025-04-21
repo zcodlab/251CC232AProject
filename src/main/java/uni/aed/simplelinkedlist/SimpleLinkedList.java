@@ -45,6 +45,58 @@ public class SimpleLinkedList {
         current.setNext(newNodo);
         lenght++;
     }
+    public int search(int key){
+        Nodo current=head;
+        boolean isFound=false;
+        int index=0;
+        while(current!=null && isFound==false){
+            if(current.getData()==key)
+                isFound=true;
+            else{
+                current=current.getNext();
+                index++;
+            }
+        }
+        if(isFound==true)
+            return index;
+        else
+            return NOT_FOUND;        
+    }
+    
+    public void remove(int data){
+        if(head==null)
+            return;
+        //si el elemento a eliminar es el primer nodo
+        if(head.getData()==data){
+            head=head.getNext();
+            lenght--;
+            return;        
+        }
+        //si el elemento a eliminar no es el primer nodo
+        Nodo current=head;
+        while(current.getNext()!=null
+                && current.getNext().getData()!=data)
+            current=current.getNext();
+        
+        if(current.getNext()!=null){
+            current.setNext(current.getNext().getNext());
+            lenght--;
+        }
+            
+    }
+    
+    public void clear(){
+        head=null;
+        lenght=0;
+    }
+    
+    public boolean isEmpty(){
+        return (lenght==0);
+    }
+    
+    public int size(){
+        return lenght;
+    }
 
     @Override
     public String toString() {
