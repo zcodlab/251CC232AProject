@@ -4,7 +4,7 @@ public class CircleLinkedList {
     private Nodo head;
     private int lenght=0;
     
-    private void addLast(int data){
+    public void addLast(int data){
         Nodo newNodo=new Nodo(data);
         if(head==null){//se trata del 1 nodo de la lista
             head=newNodo;
