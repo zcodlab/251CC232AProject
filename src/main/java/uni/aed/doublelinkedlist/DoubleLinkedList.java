@@ -65,6 +65,13 @@ public class DoubleLinkedList {
     public int size(){
         return lenght;
     }
+    //para resolver el Cap16E24
+    public DNodo getNodo(int pos){
+        DNodo current=head;
+        for(int i=0;i<pos;i++)
+            current=current.getNext();
+        return current;
+    }
     
     @Override
     public String toString() {
