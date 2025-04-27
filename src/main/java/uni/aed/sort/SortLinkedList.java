@@ -10,9 +10,9 @@ public class SortLinkedList {
         for(int i=n/2 - 1;i>=0;i--)
             heapify(lista,n,i);
         //extraer los elementos del heap
-        for(int i=n - 1;i>0;i--){
+        for(int i=n-1;i>0;i--){
             intercambio(lista,0,i);
-            heapify(lista,n,i);
+            heapify(lista,i,0);
         }        
     }
     private static void heapify(DoubleLinkedList lista,int n,int i){

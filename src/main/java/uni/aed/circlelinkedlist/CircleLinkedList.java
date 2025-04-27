@@ -57,6 +57,30 @@ public class CircleLinkedList {
             lenght--;    
         }
     }
+    //Metodo remover para resolver el problema Joshepus
+    public int remover(int n){
+        if(head==null || n<=0)
+            return -1;
+        head=remover(head,n);
+        return head.getData();
+    }
+    //Metodo recursivo para resolver el problema de Joshepus
+    private Nodo remover(Nodo head,int n){
+        if(head==null || head.getNext()==head)
+            return head;//solo queda un nodo
+        Nodo current=head;
+        Nodo prev=null;
+        //contamos hasta n
+        for(int i=1;i<n;i++){
+            prev=current;
+            current=current.getNext();
+        }
+        //Eliminar el nodo actual
+        prev.setNext(current.getNext());
+        lenght--;
+        //llamada recursiva
+        return remover(prev.getNext(),n);
+    }
     
     public void clear(){
         head=null;
