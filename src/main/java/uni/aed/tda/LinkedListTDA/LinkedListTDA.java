@@ -1,5 +1,6 @@
-package uni.aed.TDA.ListTDA.LinkedListTDA;
-import uni.aed.TDA.ListTDA.ListTDA;
+package uni.aed.tda.LinkedListTDA;
+import uni.aed.tda.ListTDA.IteratorTDA;
+import uni.aed.tda.ListTDA.ListTDA;
 public class LinkedListTDA<E> implements ListTDA<E> {
     public static final int NO_ENONTRADO=-1;
     private Nodo<E> head;
@@ -163,5 +164,12 @@ public class LinkedListTDA<E> implements ListTDA<E> {
     public int size() {
         return count;
     }
+
+    @Override
+    public IteratorTDA<E> iterador() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    
     
 }

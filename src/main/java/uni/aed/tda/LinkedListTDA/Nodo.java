@@ -1,4 +1,4 @@
-package uni.aed.TDA.ListTDA.LinkedListTDA;
+package uni.aed.tda.LinkedListTDA;
 
 public class Nodo<E> {
     private E data;
