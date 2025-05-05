@@ -167,8 +167,21 @@ public class LinkedListTDA<E> implements ListTDA<E> {
 
     @Override
     public IteratorTDA<E> iterador() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return new Iterador<>(head);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder str=new StringBuilder();
+        IteratorTDA<E> it=iterador();//obtiene la instacia de Iterador
+        while(it.hasNext()){
+            if(!str.isEmpty())
+                str.append("->");
+            str.append(it.next());            
+        }
+        return str.toString();
+    }
+    
 
     
     
