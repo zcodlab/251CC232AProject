@@ -12,4 +12,5 @@ public interface ListTDA<E> {
     public E modify(int index, E elemento) throws IndexOutOfBoundsException;
     public int size();
     public IteratorTDA<E> iterador();
+    public void delete(int indexIni,int indexFin)throws IndexOutOfBoundsException;
 }

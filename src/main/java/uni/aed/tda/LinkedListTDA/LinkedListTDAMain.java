@@ -6,10 +6,14 @@ import uni.aed.tda.ListTDA.ListTDA;
 public class LinkedListTDAMain {
     public static void main (String[] args){
         LinkedListTDAMain listaTDAMain=new LinkedListTDAMain();        
-        listaTDAMain.testLinkedListTDAString();
-        listaTDAMain.testLinkedListTDAPersona();
-        
+        try{
+            //listaTDAMain.testLinkedListTDAString();
+            listaTDAMain.testLinkedListTDAPersona();
+        }catch(IndexOutOfBoundsException e){
+            System.out.println("Error "+ e.getMessage());
+        }
     }
+    
     private void testLinkedListTDAString(){
         ListTDA<String> lista=new LinkedListTDA<>();
         System.out.println("Antes de añadir elementos "+ lista.size());
@@ -72,6 +76,27 @@ public class LinkedListTDAMain {
         
         System.out.println("Visualizando la lista");
         System.out.println("Despues de añadir elementos "+ lista.size());
+        System.out.println(lista.toString());
+        
+        Persona p6=new Persona("Nicol Kidman",30,'F');
+        Persona p7=new Persona("Rober D'Niro",60,'M');
+        Persona p8=new Persona("Silvestre Stallone",50,'M');
+        Persona p9=new Persona("Natali Portman",38,'F');
+        
+        lista.add(p6);
+        lista.add(p7);
+        lista.add(p8);
+        lista.add(p9);      
+        
+        System.out.println("Visualizando la lista");
+        System.out.println("Despues de añadir elementos "+ lista.size());
+        System.out.println(lista.toString());
+        
+        System.out.println("Eliminando Rango");
+        lista.delete(5, 7);
+        
+        System.out.println("Visualizando la lista");
+        System.out.println("Despues de eliminar elementos "+ lista.size());
         System.out.println(lista.toString());
         
     }

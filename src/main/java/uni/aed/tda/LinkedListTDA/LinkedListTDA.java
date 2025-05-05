@@ -181,6 +181,36 @@ public class LinkedListTDA<E> implements ListTDA<E> {
         }
         return str.toString();
     }
+    private void revisaPosAcceso(int indexIni,int indexFin){
+        if(size()==0)
+            throw new IndexOutOfBoundsException("Lista vacia");        
+        else if(indexFin<indexIni)
+            throw new IndexOutOfBoundsException("El primer Indice "+ indexIni+" debe ser menor que el segundo "+indexFin);
+        else if(indexIni<0||indexFin<0)
+            throw new IndexOutOfBoundsException("Indice negativo es invalido");
+        else if(indexIni> size() || indexFin>size())
+            throw new IndexOutOfBoundsException("Indice es mayor al tamaño de lista " + size());
+    }    
+
+    @Override
+    public void delete(int indexIni, int indexFin) throws IndexOutOfBoundsException {
+        revisaPosAcceso(indexIni,indexFin);
+        Nodo<E> nodoIni=head;
+        for(int i=0;i<indexIni-1;i++){
+            if(nodoIni.getNext()==null) break;
+            nodoIni=nodoIni.getNext();
+        }
+        Nodo<E> nodoFin=nodoIni;
+        for(int i=indexIni;i<=indexFin;i++){
+            if(nodoFin.getNext()==null) break;
+            nodoFin=nodoFin.getNext();
+            count--;
+        }
+        //enlazar los nodos previo al nodo inicial y posterior al nodo final
+        nodoIni.setNext(nodoFin.getNext());
+        if(nodoFin.getNext()==null)
+            cola=nodoFin;
+    }
     
 
     

@@ -149,6 +149,11 @@ public class ArrayListTDA<E> implements ListTDA<E> {
         }
         return str.toString();
     }
+
+    @Override
+    public void delete(int indexIni, int indexFin) throws IndexOutOfBoundsException {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     
 }
