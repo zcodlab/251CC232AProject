@@ -1,7 +1,7 @@
 package uni.aed.tda.fortunecookie;
 
 import java.util.Random;
-import uni.aed.tda.ListTDA.ListTDA;
+import uni.aed.tda.listTDA.ListTDA;
 
 public class FortuneCookieManager {
     private ListTDA<String> fortunas;    

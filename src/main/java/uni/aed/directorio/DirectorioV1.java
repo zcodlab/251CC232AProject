@@ -23,18 +23,6 @@ public class DirectorioV1 implements Directorio{
             throw new IllegalArgumentException("Tamaño debe ser positivo");
         }
         entry = new Persona[size];        
-    }
-
-    @Override
-    public String toString() {
-        String result="";        
-        for(Persona p: entry)
-            if (p!=null)
-                if (result.length()==0)
-                    result=p.toString() ;
-                else
-                    result=result + ", " +p.toString() ;
-        return result;
     }    
     
     public void add( Persona newPersona )
@@ -183,5 +171,15 @@ public class DirectorioV1 implements Directorio{
         return result;
     }
 
-    
+    @Override
+    public String toString() {
+        String result="";        
+        for(Persona p: entry)
+            if (p!=null)
+                if (result.length()==0)
+                    result=p.toString() ;
+                else
+                    result=result + ", " +p.toString() ;
+        return result;
+    }    
 }

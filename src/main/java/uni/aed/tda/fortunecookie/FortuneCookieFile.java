@@ -5,8 +5,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import uni.aed.tda.ArrayListTDA.ArrayListTDA;
-import uni.aed.tda.ListTDA.ListTDA;
+import uni.aed.tda.arraylistTDA.ArrayListTDA;
+import uni.aed.tda.listTDA.ListTDA;
 
 
 public class FortuneCookieFile {
