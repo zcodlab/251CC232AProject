@@ -1,6 +1,6 @@
 package uni.aed.stackTDA;
 
-import uni.aed.tda.linkedlistTDA.Nodo;
+import uni.aed.tda.LinkedListTDA.Nodo;
 
 public class LinkedStackTDA<E> implements StackTDA<E> {
     private Nodo<E> topPila;

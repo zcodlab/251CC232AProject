@@ -1,7 +1,7 @@
 package uni.aed.stackTDA;
 
-import uni.aed.tda.linkedlistTDA.LinkedListTDA;
-import uni.aed.tda.listTDA.ListTDA;
+import uni.aed.tda.LinkedListTDA.LinkedListTDA;
+import uni.aed.tda.ListTDA.ListTDA;
 
 public class ListStackTDA<E> implements StackTDA<E> {
     private static final int FRENTE=0;
