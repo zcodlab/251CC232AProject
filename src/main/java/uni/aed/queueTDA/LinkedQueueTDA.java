@@ -12,7 +12,7 @@ public class LinkedQueueTDA<E> implements QueueTDA<E> {
     }
 
     @Override
-    public void enqueue(E data) {
+    public void enqueue(E data) {//equivalente a un addLast en listas enlazadas
         Nodo newNodo=new Nodo(data);
         if(isEmpty())
             front=back=newNodo;
