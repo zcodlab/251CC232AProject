@@ -5,7 +5,8 @@ import uni.aed.model.Persona;
 public class QueueTDAMain {
     public static void main(String[] args) {    
         QueueTDAMain queueTDAMain=new QueueTDAMain();  
-        queueTDAMain.testPersonaArrayQueueTDA();
+        queueTDAMain.testIntegerPriorityQueueTDA();
+        //queueTDAMain.testPersonaArrayQueueTDA();
         //queueTDAMain.testStringArrayQueueTDA();
         //queueTDAMain.testIntegerArrayQueueTDA();
         //queueTDAMain.testPersonaLinkedQueueTDA();
@@ -147,5 +148,34 @@ public class QueueTDAMain {
         System.out.println("Despues de Recuperar elementos: "+q.size());
         System.out.println("Visualizando elementos");
         System.out.println(q.toString());  
+    }
+    
+     private void testIntegerPriorityQueueTDA(){
+        int n=7;
+        QueueTDA<Integer> q=new PriorityQueueTDA(n);
+        q.enqueue(56);
+        q.enqueue(88);
+        q.enqueue(7);
+        q.enqueue(60);
+        q.enqueue(2);
+        q.enqueue(71);
+        q.enqueue(59);
+        
+        System.out.println("Despues de Añadir elementos: "+q.size());
+        System.out.println("Visualizando la cola");
+        System.out.println(q.toString());                
+        
+        System.out.println("Recuperando elementos");
+        System.out.println("Elemento Recuperado:"+q.peek().toString());
+        System.out.println("Despues de Recuperar elementos: "+q.size());
+        System.out.println("Visualizando elementos");
+        System.out.println(q.toString());  
+        
+        System.out.println("Eliminando elementos - Extraendo todos los elementos del heap");
+        for(int i=0;i<n;i++)                
+            System.out.println("Elemento Eliminando:"+q.dequeue().toString());
+        System.out.println("Despues de Eliminar elementos: "+q.size());
+        System.out.println("Visualizando elementos");
+        System.out.println(q.toString());        
     }
 }
