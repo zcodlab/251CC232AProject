@@ -1,0 +1,22 @@
+package uni.aed.trees;
+public class BSTMain {
+    public static void main(String[] args){
+        BSTMain bSTMain=new BSTMain();
+        bSTMain.testInsert();
+        
+    }
+    private void testInsert(){
+        BST tree =new BST();
+        tree.insert(15);
+        tree.insert(4);
+        tree.insert(20);
+        tree.insert(17);
+        tree.insert(19);    
+        
+        StringBuilder str=new StringBuilder();
+        System.out.println("Realizando una llamada inorder(LVR)");
+        tree.inorder(str);
+        System.out.println(str.toString());
+    }
+    
+}
