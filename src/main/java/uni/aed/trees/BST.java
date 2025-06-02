@@ -44,5 +44,25 @@ public class BST {
             inorder(p.getRight(),str);//R
         }            
     }
+    public void preorder(StringBuilder str){
+        preorder(root,str);
+    }
+    private void preorder(BSTNode p,StringBuilder str){
+        if(p!=null){
+            visit(p,str);            //V
+            preorder(p.getLeft(),str);//L            
+            preorder(p.getRight(),str);//R
+        }            
+    }
     
+    public void postorder(StringBuilder str){
+        postorder(root,str);
+    }
+    private void postorder(BSTNode p,StringBuilder str){
+        if(p!=null){            
+            postorder(p.getLeft(),str);//L            
+            postorder(p.getRight(),str);//R
+            visit(p,str);            //V
+        }            
+    }
 }
