@@ -32,6 +32,16 @@ public class BSTMain {
         str.setLength(0);
         tree.breadthFirst(str);
         System.out.println(str.toString());
+        
+        System.out.println("Realizando busqueda del elemento 17");
+        str.setLength(0);
+        tree.visit(tree.search(17), str);
+        System.out.println(str.toString());
+        
+        System.out.println("Realizando busqueda del elemento 170");
+        str.setLength(0);
+        tree.visit(tree.search(170), str);
+        System.out.println(str.toString());
     }
     
 }

@@ -29,12 +29,28 @@ public class BST {
             prev.setLeft(new BSTNode(e));
     }
     
+    public BSTNode search(int e){
+        return search(root,e);
+    }
+    private BSTNode search(BSTNode p,int e){
+        while(p!=null){
+            if(e==p.getKey())
+                return p;
+            else if(e<p.getKey())
+                p=p.getLeft();
+            else
+                p=p.getRight();
+        }
+        return null;
+    }
+    
     public void visit(BSTNode p,StringBuilder str){
         if(p==null)
             str.append(NOT_FOUND);
         if(!str.isEmpty())
             str.append(",");
-        str.append(p.getKey());
+        if(p!=null)
+            str.append(p.getKey());
     }
     
     //LVR:recorrido primero en profundidad: inorder
