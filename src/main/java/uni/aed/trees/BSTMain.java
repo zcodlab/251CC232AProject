@@ -27,6 +27,11 @@ public class BSTMain {
         str.setLength(0);
         tree.postorder(str);
         System.out.println(str.toString());
+        
+        System.out.println("Realizando recorrido primero en amplitud");
+        str.setLength(0);
+        tree.breadthFirst(str);
+        System.out.println(str.toString());
     }
     
 }

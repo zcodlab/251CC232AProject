@@ -1,4 +1,8 @@
 package uni.aed.trees;
+
+import uni.aed.queueTDA.LinkedQueueTDA;
+import uni.aed.queueTDA.QueueTDA;
+
 public class BST {
     public static final int NOT_FOUND=-1;
     public static final int IS_EMPTY=0;
@@ -64,5 +68,22 @@ public class BST {
             postorder(p.getRight(),str);//R
             visit(p,str);            //V
         }            
+    }    
+    //recorrido primero en amplitud
+    public void breadthFirst(StringBuilder str){
+        BSTNode p=root;
+        QueueTDA<BSTNode> queue=new LinkedQueueTDA<>();
+        if(p!=null){
+            queue.enqueue(p);
+            while(!queue.isEmpty()){
+                p=queue.dequeue();
+                visit(p,str);
+                if(p.getLeft()!=null)
+                    queue.enqueue(p.getLeft());
+                if(p.getRight()!=null)
+                    queue.enqueue(p.getRight());
+            }
+        }
     }
+    
 }
