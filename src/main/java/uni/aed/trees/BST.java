@@ -29,6 +29,52 @@ public class BST {
             prev.setLeft(new BSTNode(e));
     }
     
+    //Eliminacion por copiado
+    public int deleteByCopying(int e){
+        BSTNode tmp,node,p=root,prev=null,previous;
+        //buscar el nodo a eliminar
+        while(p!=null && p.getKey()!=e){
+            prev=p;
+            if(p.getKey()<e)
+                p=p.getRight();
+            else
+                p=p.getLeft();
+        }
+        node=p;
+        if(p!=null && p.getKey()==e)//encontro el elemento a eliminar
+        {
+            if(node.getRight()==null)//no tiene hijo derecho
+                node=node.getLeft();
+            else if(node.getLeft()==null)//no tiene hijo izquierdo
+                node=node.getRight();
+            else{//el nodo tiene dos hijos
+                tmp=node.getLeft();
+                previous=node;
+                while(tmp.getRight()!=null){//existe rama derecha en la rama izq
+                    previous=tmp;
+                    tmp=tmp.getRight();
+                }
+                node.setKey(tmp.getKey());//copiamos el nodo del extremo derecho de la rama izq
+                if(previous==node)
+                    previous.setLeft(tmp.getLeft());
+                else
+                    previous.setRight(tmp.getLeft());                
+            }
+            if(p==root)
+                root=node;
+            else if(prev.getLeft()==p)
+                prev.setLeft(node);
+            else
+                prev.setRight(node);
+            
+        }else if(root!=null)//no encontro el elemento a eliminar
+            return NOT_FOUND;
+        else
+            return IS_EMPTY;
+        
+        return FOUND;
+    }
+    
     public BSTNode search(int e){
         return search(root,e);
     }

@@ -2,7 +2,8 @@ package uni.aed.trees;
 public class BSTMain {
     public static void main(String[] args){
         BSTMain bSTMain=new BSTMain();
-        bSTMain.testInsert();
+        bSTMain.testDeleteByCopying();
+        //bSTMain.testInsert();
         
     }
     private void testInsert(){
@@ -46,6 +47,32 @@ public class BSTMain {
         str.setLength(0);
         tree.visit(tree.search(170), str);
         System.out.println(str.toString());
+    }
+    
+    private void testDeleteByCopying(){
+        BST tree =new BST();
+        tree.insert(10);
+        tree.insert(5);
+        tree.insert(20);
+        tree.insert(4);
+        tree.insert(6);    
+        tree.insert(15);    
+        tree.insert(30);    
+        tree.insert(0);    
+        tree.insert(7);    
+        tree.insert(13);    
+        tree.insert(8);    
+        
+        System.out.println("Visualizar arbol");
+        System.out.println(tree.toString());
+        
+        System.out.println("Realizando la eliminacion por copiado del nodo raiz 10");
+        int result=tree.deleteByCopying(10);
+        if(result==-1)
+            System.out.println("El valor a eliminar no se ubico en el arbol");
+        
+        System.out.println("Visualizar arbol");
+        System.out.println(tree.toString());
     }
     
 }
