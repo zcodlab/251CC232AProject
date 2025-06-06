@@ -75,6 +75,43 @@ public class BST {
         return FOUND;
     }
     
+    //Eliminacion por copiado
+    public int deleteByMerging(int e){
+        BSTNode tmp,node,p=root,prev=null;
+        while(p!=null && p.getKey()!=e){
+            prev=p;
+            if(p.getKey()<e)
+                p=p.getRight();
+            else
+                p=p.getLeft();
+        }
+        node=p;
+        if(p!=null && p.getKey()==e)//encontro el valor en el arbol
+        {
+            if(node.getRight()==null)
+                node=node.getLeft();//no tiene hijo derecho
+            else if(node.getLeft()==null)
+                node=node.getRight();//no tiene hijo izq
+            else{//tiene dos hijos
+                tmp=node.getLeft();
+                while(tmp.getRight()!=null)
+                    tmp=tmp.getRight();
+                tmp.setRight(node.getRight());//fusionando la rama izq(nodo extremo der) con la rama der
+                node=node.getLeft();//node a eliminar apunta a su nodo izq, nodo izq se constituye en la nueva raiz(o nodo padre)
+            }
+            if(p==root)
+                root=node;
+            else if(prev.getLeft()==p)
+                prev.setLeft(node);
+            else
+                prev.setRight(node);
+        }else if(root!=null)    
+            return NOT_FOUND;
+        else
+            return IS_EMPTY;
+        return FOUND;
+    }
+    
     public BSTNode search(int e){
         return search(root,e);
     }
