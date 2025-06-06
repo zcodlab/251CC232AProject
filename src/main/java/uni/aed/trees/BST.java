@@ -7,7 +7,7 @@ public class BST {
     public static final int NOT_FOUND=-1;
     public static final int IS_EMPTY=0;
     public static final int FOUND=1;    
-    protected BSTNode root;
+    private BSTNode root;
 
     public BST() {
         this.root=null;
@@ -100,6 +100,11 @@ public class BST {
                     queue.enqueue(p.getRight());
             }
         }
+    }
+
+    @Override
+    public String toString() {
+        return root.toString();
     }
     
 }

@@ -1,5 +1,9 @@
 package uni.aed.trees;
 
+import uni.aed.tda.LinkedListTDA.LinkedListTDA;
+import uni.aed.tda.ListTDA.IteratorTDA;
+import uni.aed.tda.ListTDA.ListTDA;
+
 public class BSTNode {
     private int key;
     private BSTNode left,right;
@@ -42,10 +46,31 @@ public class BSTNode {
     public BSTNode getRight() {
         return right;
     }
+    private void print(StringBuilder buffer, String prefix, String childrenPrefix){
+        ListTDA<BSTNode> children =new LinkedListTDA<>();
+        children.add(left);
+        children.add(right);
+        
+        buffer.append(prefix);
+        buffer.append(key);
+        buffer.append('\n');
+        
+        for(IteratorTDA<BSTNode> it=children.iterador(); it.hasNext();){
+            BSTNode next =it.next();
+            if(next==null)
+                continue;
+            if(it.hasNext())
+                next.print(buffer, childrenPrefix + "---", childrenPrefix +"|   ");
+            else
+                next.print(buffer, childrenPrefix + "+++", childrenPrefix +"   ");
+        }
+    }
 
     @Override
     public String toString() {
-        return "BSTNode{" + "key=" + key + ", left=" + left + ", right=" + right + '}';
+        StringBuilder buffer=new StringBuilder();
+        print(buffer,"","");
+        return buffer.toString();
     }    
     
 }

@@ -13,6 +13,10 @@ public class BSTMain {
         tree.insert(17);
         tree.insert(19);    
         
+        System.out.println("Visualizar arbol");
+        System.out.println(tree.toString());
+        
+        
         StringBuilder str=new StringBuilder();
         System.out.println("Realizando una llamada inorder(LVR)");
         tree.inorder(str);
