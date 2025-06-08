@@ -119,4 +119,16 @@ public class PriorityQueueTDA<E> implements QueueTDA<E> {
         }
         return str.toString();
     }
+    
+    public String toString(String patron) {
+        StringBuilder str=new StringBuilder();
+        int current=RAIZ;
+        while(current<count){
+            if(!str.isEmpty())
+                str.append(patron);
+            str.append(heap[current].toString());
+            current++;
+        }
+        return str.toString();
+    }
 }
