@@ -1,5 +1,5 @@
 package uni.aed.model;
-public class Persona implements Comparable{
+public class Persona implements Comparable<Persona>{
     
     public static final int NAME = 0;
     public static final int AGE = 1;    
@@ -89,10 +89,15 @@ public class Persona implements Comparable{
         return comparisonResult;
     }        
 
+//    @Override
+//    public int compareTo(Object o) {
+//        if(o instanceof String)
+//            return this.name.compareTo((String)o);
+//        return compareTo((Persona)o, compareAttribute);
+//    }
+
     @Override
-    public int compareTo(Object o) {
-        if(o instanceof String)
-            return this.name.compareTo((String)o);
+    public int compareTo(Persona o) {
         return compareTo((Persona)o, compareAttribute);
     }
 }
