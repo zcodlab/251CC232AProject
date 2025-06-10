@@ -18,10 +18,10 @@ public class SoftwareStoreMain {
         try{
             do {
                 System.out.println("TIENDA DE SOFTWARE");
-                System.out.println("1. Sell Software");
-                System.out.println("2. Add Software");
+                System.out.println("1. Vender Software");
+                System.out.println("2. Agregar Software");
                 System.out.println("3. Ver Inventario");
-                System.out.println("4. Exit");
+                System.out.println("4. Salir");
                 System.out.println("Ingrese la opcion: ");
                 choice = scanner.nextInt();
 
