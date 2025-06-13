@@ -1,4 +1,4 @@
-package uni.aed.trees.softwarestore;
+package uni.aed.treeTDA.softwarestore;
 
 public class Node<E> {
     private static final String SEPARADOR = "\n";

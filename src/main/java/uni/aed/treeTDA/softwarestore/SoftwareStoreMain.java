@@ -1,10 +1,10 @@
-package uni.aed.trees.softwarestore;
+package uni.aed.treeTDA.softwarestore;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class SoftwareStoreMain {
-    SoftwareStore softwareStore = new SoftwareStore("src/main/java/uni/aed/trees/softwarestore/software.txt");                                                                
+    SoftwareStore softwareStore = new SoftwareStore("src/main/java/uni/aed/treeTDA/softwarestore/software.txt");                                                                
     Scanner scanner = new Scanner(System.in).useDelimiter("\n");
     StringBuilder str=new StringBuilder();
     

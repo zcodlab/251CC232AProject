@@ -1,4 +1,4 @@
-package uni.aed.trees.softwarestore;
+package uni.aed.treeTDA.softwarestore;
 
 import uni.aed.model.Software;
 import java.io.BufferedReader;

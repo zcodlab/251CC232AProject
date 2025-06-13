@@ -1,17 +1,17 @@
-package uni.aed.trees.AVL;
+package uni.aed.treeTDA.AVL;
 
 public class AvlTreeNode<E> {
     private E key;
     private int height;
     private AvlTreeNode<E> left;
     private AvlTreeNode<E> right;
-    private static final String SEPARADOR="\n";
+    private static final String SEPARADOR = "\n";    
 
     public AvlTreeNode(E key) {
         this.key = key;
-        this.height=1;//todo nuevo nodo nace con una altura 1
+        this.height=1;
         this.left=null;
-        this.right=null;
+        this.right=null;        
     }
 
     public void setKey(E key) {
@@ -45,30 +45,35 @@ public class AvlTreeNode<E> {
     public AvlTreeNode<E> getRight() {
         return right;
     }
+
+    public static String getSEPARADOR() {
+        return SEPARADOR;
+    }
     
-    private void print(StringBuilder buffer, String prefix, String childrenPrefix){        
+    private void print(StringBuilder buffer, String prefix, String childrenPrefix) {
+        // Escribe el nodo actual
         buffer.append(prefix);
         buffer.append(key);
         buffer.append(SEPARADOR);
-        
-        if(left!=null && right!=null){
-            //ambos hijos existen
-            left.print(buffer, childrenPrefix + "---", childrenPrefix +"   ");
-            right.print(buffer, childrenPrefix + "+++", childrenPrefix +"|   ");
-        }else if(left!=null)//tiene hijo izq
-            left.print(buffer, childrenPrefix + "---", childrenPrefix +"   ");
-        else if(right!=null)
-            right.print(buffer, childrenPrefix + "+++", childrenPrefix +"|   ");
+
+        // Lógica de impresión del subárbol izquierdo
+        if (left != null && right != null) {
+            // Ambos hijos existen
+            left.print(buffer, childrenPrefix + "+++", childrenPrefix + "   ");
+            right.print(buffer, childrenPrefix + "---", childrenPrefix + "|   ");
+        } else if (left != null)
+            // Solo hijo izquierdo
+            left.print(buffer, childrenPrefix + "+++", childrenPrefix + "   ");
+        else if (right != null)
+            // Solo hijo derecho
+            right.print(buffer, childrenPrefix + "+++", childrenPrefix + "   ");        
     }
     
-
     @Override
-    public String toString() {
+    public String toString(){
         StringBuilder buffer=new StringBuilder();
         print(buffer,"","");
         return buffer.toString();
-    }
-    
-    
+    }  
     
 }
