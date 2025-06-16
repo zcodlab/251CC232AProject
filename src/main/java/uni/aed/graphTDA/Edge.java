@@ -1,8 +1,5 @@
 package uni.aed.graphTDA;
 //Clase Arista
-
-import java.util.Objects;
-
 public class Edge<T extends Comparable<T>> implements Comparable<Edge<T>>{
     private Vertex<T> from=null;//vertice origen(from=Desde) que une la arista con un vertice destino
     private Vertex<T> to=null;//vertice destino(to=hacia)
