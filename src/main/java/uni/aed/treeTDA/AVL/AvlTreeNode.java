@@ -59,11 +59,11 @@ public class AvlTreeNode<E> {
         // Lógica de impresión del subárbol izquierdo
         if (left != null && right != null) {
             // Ambos hijos existen
-            left.print(buffer, childrenPrefix + "+++", childrenPrefix + "   ");
-            right.print(buffer, childrenPrefix + "---", childrenPrefix + "|   ");
+            left.print(buffer, childrenPrefix + "---", childrenPrefix + "   ");
+            right.print(buffer, childrenPrefix + "+++", childrenPrefix + "|   ");
         } else if (left != null)
             // Solo hijo izquierdo
-            left.print(buffer, childrenPrefix + "+++", childrenPrefix + "   ");
+            left.print(buffer, childrenPrefix + "---", childrenPrefix + "   ");
         else if (right != null)
             // Solo hijo derecho
             right.print(buffer, childrenPrefix + "+++", childrenPrefix + "   ");        

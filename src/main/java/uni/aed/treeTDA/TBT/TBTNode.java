@@ -62,12 +62,12 @@ public class TBTNode<E> {
         buffer.append(SEPARADOR);
         // Imprimir hijo izquierdo si existe
         if (left != null) {
-            left.print(buffer, childrenPrefix + "+++", childrenPrefix + "   ");
+            left.print(buffer, childrenPrefix + "---", childrenPrefix + "   ");
         }
 
         // Imprimir hijo derecho solo si NO es un hilo (es un hijo real)
         if (right != null && !succesor) {
-            right.print(buffer, childrenPrefix + "---", childrenPrefix + "|   ");
+            right.print(buffer, childrenPrefix + "+++", childrenPrefix + "|   ");
         }
     }
     
