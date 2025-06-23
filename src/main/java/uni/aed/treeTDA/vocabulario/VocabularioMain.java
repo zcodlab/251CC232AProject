@@ -92,10 +92,10 @@ public class VocabularioMain {
      * Opción 1: Genera las palabras en inglés ordenadas alfabéticamente
      */
     private void generarPalabrasIngles() {
-        System.out.println("        GENERANDO VOCABULARIO INGLÉS-LATÍN    ");        
+        System.out.println("        GENERANDO VOCABULARIO INGLES-LATIN    ");        
         // Verificar si el archivo de entrada existe
         if (!processor.inputFileExists()) {
-            System.out.println(" No se encontró el archivo de entrada: " + INPUT_FILE);            
+            System.out.println(" No se encontro el archivo de entrada: " + INPUT_FILE);            
             return;
         }        
         System.out.println("Archivo de entrada: " + INPUT_FILE +", procesando vocabulario...");        
