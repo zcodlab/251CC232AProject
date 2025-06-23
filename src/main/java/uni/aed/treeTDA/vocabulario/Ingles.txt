@@ -1,0 +1,27 @@
+%Unit 5
+ancient : antiquus
+arms : arma
+be on fire : ardeo
+before : ante
+burn : ardeo
+desire : ardeo
+gold : aurum
+golden : aureus
+in front of : ante
+of gold : aureus
+previously : ante
+weapons : arma
+
+%Unit 6
+Athens : Athenae
+and : atque
+ac
+animal : animal
+dawn : aurora
+
+%Unit 7
+Asia : Asia
+love : amo
+amor
+year : annus
+

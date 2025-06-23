@@ -2,6 +2,9 @@ package uni.aed.treeTDA;
 
 import uni.aed.queueTDA.LinkedQueueTDA;
 import uni.aed.queueTDA.QueueTDA;
+import uni.aed.tda.LinkedListTDA.LinkedListTDA;
+import uni.aed.tda.ListTDA.IteratorTDA;
+import uni.aed.tda.ListTDA.ListTDA;
 
 /** 
  * BST: Binary Search Tree
@@ -156,6 +159,25 @@ public class BstTDA<E extends Comparable<E>> {
             visit(p,str);
             inorder(p.getRight(),str);
         }        
+    }
+    
+     //Resuelve 4PC:VisualizarArbol Final: LVR inorder
+    public BstTDA<E> inorder(){
+        BstTDA<E> bst=new BstTDA<>();
+        ListTDA<E> lista=new LinkedListTDA<>();
+        inorder(root,lista);
+        IteratorTDA<E> it=lista.iterador();        
+        while(it.hasNext()){            
+            E e=it.next();    
+            bst.add(e);
+        }
+        return bst;
+    }
+    private void inorder(BstNodeTDA<E> p,ListTDA<E> l){
+        if(p!=null){
+            inorder(p.getLeft(),l);
+            l.add(p.getKey());            
+            inorder(p.getRight(),l);}
     }
     
     //VLR preorder
