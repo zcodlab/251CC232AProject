@@ -8,11 +8,11 @@ public class DataGraph {
     //grafo no dirigido
     protected static class UndirectedGraph{
         private final List<Vertex<Integer>> vertices=new ArrayList<>();
-        private final Vertex<Integer> v1=new Vertex<>(1);
+        protected final Vertex<Integer> v1=new Vertex<>(1);
         private final Vertex<Integer> v2=new Vertex<>(2);
         private final Vertex<Integer> v3=new Vertex<>(3);
         private final Vertex<Integer> v4=new Vertex<>(4);
-        private final Vertex<Integer> v5=new Vertex<>(5);
+        protected final Vertex<Integer> v5=new Vertex<>(5);
         private final Vertex<Integer> v6=new Vertex<>(6);
         private final Vertex<Integer> v7=new Vertex<>(7);
         private final Vertex<Integer> v8=new Vertex<>(8);
