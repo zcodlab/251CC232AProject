@@ -19,7 +19,7 @@ public class Kruskal {
         getMinimumSpanningTree(Graph<Integer> graph){
         if(graph==null)
             throw (new NullPointerException("Grafo no puede ser nulo"));    
-        //Kruskal funcion con grafos no dirigidos
+        //Kruskal funciona con grafos no dirigidos
         if(graph.getType()==Graph.TYPE.DIRECTED)
             throw (new IllegalArgumentException("El Grafo debe ser No dirigido"));
         int cost=0;
@@ -30,8 +30,8 @@ public class Kruskal {
                 membershipMap=new HashMap<>();
         for(Vertex<Integer> v:graph.getVertices()){
             HashSet<Vertex<Integer>> set=new HashSet<>();
-            set.add(v);
-            membershipMap.put(v, set);
+            set.add(v);//añadimos el vertice al conjunto de vertices
+            membershipMap.put(v, set);//agregamos el vertice en la tabla
         }
         //declara cola prioritaria y descargamos en ella todas las aristas del grafo
         final Queue<Edge<Integer>> edgeQueue=new PriorityQueue<>(graph.getEdges());
@@ -56,13 +56,13 @@ public class Kruskal {
         HashSet<Vertex<Integer>> firstSet=membershipMap.get(v1);
         HashSet<Vertex<Integer>> secondSet=membershipMap.get(v2);        
         if(secondSet.size()>firstSet.size()){
-            HashSet<Vertex<Integer>> tempSet=firstSet;
-            firstSet=secondSet;
-            secondSet=tempSet;
+            HashSet<Vertex<Integer>> tempSet=firstSet;//inicializamos con el conjunto mas pequeño
+            firstSet=secondSet;//asignamos el conjuntpo mas grande
+            secondSet=tempSet;//asignamos el conjunto mas pequeño
         }
-        for(Vertex<Integer> v:secondSet)
+        for(Vertex<Integer> v:secondSet)//conjunto contiene el menor numero de elementos
             membershipMap.put(v, firstSet);
         //añadiendo todos los vertices desde el mas pequeño al mas grande
-        firstSet.addAll(secondSet);
+        firstSet.addAll(secondSet);//al conjunto mas grande vertices le añadimos el conjunto el mas pequeño
     }
 }
