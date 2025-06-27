@@ -5,7 +5,7 @@ import java.util.List;
 import uni.aed.graphTDA.Edge;
 import uni.aed.graphTDA.Graph;
 import uni.aed.graphTDA.Vertex;
-//Ordenamiento Topologico aplica para grafos dirigidos
+//Ordenamiento Topologico aplica para grafos dirigidos, considera las aristas salientes en la clasificacion topologica
 public class TopologicalSort {
 
     public TopologicalSort() {

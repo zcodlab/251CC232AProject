@@ -1,10 +1,12 @@
 package uni.aed.graphTDA;
 
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import uni.aed.graphTDA.DataGraph.DirectedGraph;
 import uni.aed.graphTDA.DataGraph.UndirectedGraph;
+import uni.aed.graphTDA.TopologicalSort.TopologicalSort;
 import uni.aed.graphTDA.recubrimiento.Kruskal;
 import uni.aed.graphTDA.recubrimiento.Prim;
 import uni.aed.graphTDA.shortestpath.CostPathPair;
@@ -30,7 +32,8 @@ public class GraphMain {
                 "3.- Dijkstra No Dirigido "+SEPARADOR+                
                 "4.- Kruskal "+SEPARADOR+                
                 "5.- Prim "+SEPARADOR+                
-                "6.- Salir "+SEPARADOR+"Elija una opcion:");                
+                "6.- Ordenamiento Topologico "+SEPARADOR+                
+                "7.- Salir "+SEPARADOR+"Elija una opcion:");                
                 opcion =scr.nextInt();            
                 switch (opcion)
                 {
@@ -39,6 +42,7 @@ public class GraphMain {
                     case 3 -> {getDijkstraUndirected();}                    
                     case 4 -> {getKruskal();}                    
                     case 5 -> {getPrim();}                    
+                    case 6 -> {getTopologicalSort();}                    
                     default -> {break;}
                 }	            
                 System.out.print("Para continuar con las operaciones pulsa S; Para finalizar pulse N: ");
@@ -90,5 +94,11 @@ public class GraphMain {
         Vertex<Integer> start=undirectedGraph.v1;
         CostPathPair<Integer> result=Prim.getMinimumSpanningTree(undirectedGraph.graph,start);
         System.out.println("Arbol de Expansion Minima: Prim: "+result);
+    }
+    
+    private void getTopologicalSort(){
+        DataGraph.DirectedGraph directedGraph=new DirectedGraph();
+        List<Vertex<Integer>> result=TopologicalSort.sort(directedGraph.graph);
+        System.out.println("Resultado del Ordenamiento Topologico:\n"+result.toString());
     }
 }
