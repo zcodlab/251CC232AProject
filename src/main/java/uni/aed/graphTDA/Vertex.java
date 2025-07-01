@@ -54,7 +54,7 @@ public class Vertex<T extends Comparable<T>> implements Comparable<Vertex<T>>{
       //recorremos la lista de aristas del vertice actual, 
       //buscando la arista que tiene como vertice destino, el vertice v
       for(Edge<T> e:edges){          
-          if(e.getToVertex().equals(v));
+          if(e.getToVertex().equals(v))
                return e;
       }
       return null;
@@ -62,7 +62,7 @@ public class Vertex<T extends Comparable<T>> implements Comparable<Vertex<T>>{
     //Retorna true/false si existe un camino hacia el vertice v
     public boolean pathTo(Vertex<T> v){
         for(Edge<T> e:edges){          
-          if(e.getToVertex().equals(v));
+          if(e.getToVertex().equals(v))
             return true;
         }
         return false;
